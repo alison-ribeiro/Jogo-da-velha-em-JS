@@ -9,8 +9,10 @@ h1 {
 
 #buttons-container button {
     border: none;
-    padding: 10px 15px;
+    padding: 15px 35px;
     margin: 0px 10px;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 #container{

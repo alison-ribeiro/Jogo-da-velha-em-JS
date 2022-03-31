@@ -42,21 +42,9 @@ for(let i = 0; i < boxes.length; i++){
 }
 
 
-for(let i = 0; i < buttons.length; i++){
-    buttons[i].addEventListener("click", function(){
 
-        secondPlayer = this.getAttribute("id")
-        
-        for(let j = 0; j < buttons.length; j++){
-            buttons[j].style.display = 'none';
-        }
-        setTimeout(function(){
-            let contianer = document.querySelector("#container");
-            contianer.classList.remove("hide");
-        }, 500)
-    })
-}
 
+  
 
 function checkEl(player1, player2){
     
@@ -205,7 +193,7 @@ function declareWinner(winner){
 
     setTimeout(function(){
         messageContainer.classList.add("hide");
-    }, 2000)
+    }, 700)
 
     player1 = 0;
     player2 = 0;
@@ -216,30 +204,15 @@ function declareWinner(winner){
         boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
     }
 }
-
-
-function computerPlay(){
-    let cloneO = o.cloneNode(true);
-    counter = 0;
-    filled = 0;
-    
-
-    for(let i = 0; i < boxes.length; i++){
-        let randomNumber = Math.floor(Math.random() * 5);
-
-        if(boxes[i].childNodes[0] == undefined){
-            if(randomNumber <= 1){
-                boxes[i].appendChild(cloneO);
-                counter++;
-                break;
-            }
-
-        }else{
-            filled++;
-        }
-    }
-    if(counter == 0 && filled < 9){
-        computerPlay();
-    }
-}
+for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function() {
+      for(j = 0; j < buttons.length; j++) {
+        buttons[j].style.display = 'none';
+      }
+      setTimeout(function() {
+        let container = document.querySelector("#container");
+        container.classList.remove("hide");
+      }, 500);
+    });
+  }
 
